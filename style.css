@@ -2,14 +2,14 @@ body {
   background: #2d2d2d;
   display: flex;
   justify-content: center;
-  align-items: top;
+  align-items: center;
   height: 100vh;
   margin: 0;
   }
 
 .chessboard {
-  grid-template-columns: repeat(8, 50px);
-  grid-template-rows: repeat(8, 50px);
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   display: grid;
   gap: 1px;
   grid-template-areas:
@@ -21,16 +21,17 @@ body {
     "a3 b3 c3 d3 e3 f3 g3 h3"
     "a2 b2 c2 d2 e2 f2 g2 h2"
     "a1 b1 c1 d1 e1 f1 g1 h1";
+    width: 90vw;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
 }
 
 .square {
-  width: 50px;
-  height: 50px;
+  aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
-  text-align: center;
+  font-size: 2vw;
 }
 
 #a8, #c8, #e8, #g8,
@@ -52,7 +53,20 @@ body {
 #a1, #c1, #e1, #g1 {background-color: burlywood;}
 
 img {
-  width: 40px;
-  height: 40px;
+  height: 90%;
   object-fit: contain;
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+  .chessboard {
+    width: 95vw; /* Use more of the screen width */
+  }
+}
+
+@media (max-width: 480px) {
+  .chessboard {
+    width: 99vw; /* Fill the screen width */
+    gap: 1px; /* Reduce the gap for smaller screens */
+  }
 }
