@@ -70,3 +70,10 @@ img {
     gap: 1px; /* Reduce the gap for smaller screens */
   }
 }
+
+#button {
+  font-size: medium;
+}
+#outer {
+  text-align:center;
+}

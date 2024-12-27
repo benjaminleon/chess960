@@ -1,18 +1,3 @@
-const aliceTumbling = [
-  { transform: 'rotate(0) scale(1)' },
-  { transform: 'rotate(360deg) scale(0)' }
-];
-
-const aliceTiming = {
-  duration: 500,
-  iterations: 1,
-  fill: 'forwards'
-}
-
-const alice1 = document.querySelector("#alice1");
-const alice2 = document.querySelector("#alice2");
-const alice3 = document.querySelector("#alice3");
-
 function shuffle() {
   let positions = {}
   let available = ['a','b','c','d','e','f','g','h']
@@ -72,9 +57,6 @@ function shuffle() {
   return positions
 }
 
-let positions = shuffle()
-
-
 function move(pieceID, targetSquareId) {
   const piece = document.getElementById(pieceID);
   const targetSquare = document.getElementById(targetSquareId);
@@ -87,9 +69,35 @@ function move(pieceID, targetSquareId) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-});
-
-for (let key in positions) {
-  move(key, positions[key]);  
+async function delayedMove(piece, targetSquare) {
+  move(piece, targetSquare);
+  await new Promise(r => setTimeout(r, 100));
 }
+
+async function generate() {
+  // Get the pieces off the board to avoid collisions
+  await delayedMove('rook_black_1', 'a9');
+  await delayedMove('knight_black_1', 'b9');
+  await delayedMove('bishop_black_1', 'c9');
+  await delayedMove('queen_black', 'd9');
+  await delayedMove('king_black', 'e9');
+  await delayedMove('bishop_black_2', 'f9');
+  await delayedMove('knight_black_2', 'g9');
+  await delayedMove('rook_black_2', 'h9');
+
+  await delayedMove('rook_white_2', 'h0');
+  await delayedMove('knight_white_2', 'g0');
+  await delayedMove('bishop_white_2', 'f0');
+  await delayedMove('king_white', 'e0');
+  await delayedMove('queen_white', 'd0');
+  await delayedMove('bishop_white_1', 'c0');
+  await delayedMove('knight_white_1', 'b0');
+  await delayedMove('rook_white_1', 'a0');
+
+  let positions = shuffle()
+  for (let key in positions) {
+    await delayedMove(key, positions[key]);
+  }
+}
+
+document.getElementById("button").addEventListener("click", generate);
