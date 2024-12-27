@@ -1,0 +1,94 @@
+body {
+  background: #2d2d2d;
+  display: flex;
+  justify-content: center;
+  }
+
+#piece-container {
+  width: 90vh;
+  height: 90vh;
+  background-image: url('svg/board.svg');
+  background-size: 100% 100%;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  display: grid;
+  place-items: center;
+  grid-template-areas:
+    "a8 b8 c8 d8 e8 f8 g8 h8"
+    "a7 b7 c7 d7 e7 f7 g7 h7"
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . ."
+    ". . . . . . . ."
+    "a2 b2 c2 d2 e2 f2 g2 h2"
+    "a1 b1 c1 d1 e1 f1 g1 h1";
+}
+
+#rook_black_1 {
+  grid-area: a8;
+}
+#knight_black_1 {
+  grid-area: b8;
+}
+#bishop_black_1 {
+  grid-area: c8;
+}
+#queen_black {
+  grid-area: d8;
+}
+#king_black {
+  grid-area: e8;
+}
+
+
+#pawn_white_1 {
+  grid-area: a2;
+}
+#pawn_white_2 {
+  grid-area: b2;
+}
+#pawn_white_3 {
+  grid-area: c2;
+}
+#pawn_white_4 {
+  grid-area: d2;
+}
+#pawn_white_5 {
+  grid-area: e2;
+}
+#pawn_white_6 {
+  grid-area: f2;
+}
+#pawn_white_7 {
+  grid-area: g2;
+}
+#pawn_white_8 {
+  grid-area: h2;
+}
+
+
+#rook_white_1 {
+  grid-area: a1;
+}
+#knight_white_1 {
+  grid-area: b1;
+}
+#bishop_white_1 {
+  grid-area: c1;
+}
+#queen_white {
+  grid-area: d1;
+}
+#king_white {
+  grid-area: e1;
+}
+#bishop_white_2 {
+  grid-area: f1;
+}
+#knight_white_2 {
+  grid-area: g1;
+}
+#rook_white_2 {
+  grid-area: h1;
+}
+

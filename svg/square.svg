@@ -1,0 +1,8 @@
+<svg viewBox="0 0 1 1">
+    <rect width="1" height="1" fill="white"/>
+    <pattern id="squares" width="2" height="2" patternUnits="userSpaceOnUse">
+        <rect width="1" height="1" fill="#FF0000"/>
+        <rect x="1" y="1" width="1" height="1" fill="#00FF00"/>
+    </pattern>
+    <rect width="1" height="1" fill="url(#squares)"/>
+</svg>
