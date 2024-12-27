@@ -2,93 +2,57 @@ body {
   background: #2d2d2d;
   display: flex;
   justify-content: center;
+  align-items: top;
+  height: 100vh;
+  margin: 0;
   }
 
-#piece-container {
-  width: 90vh;
-  height: 90vh;
-  background-image: url('svg/board.svg');
-  background-size: 100% 100%;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
+.chessboard {
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
   display: grid;
-  place-items: center;
+  gap: 1px;
   grid-template-areas:
     "a8 b8 c8 d8 e8 f8 g8 h8"
     "a7 b7 c7 d7 e7 f7 g7 h7"
-    ". . . . . . . ."
-    ". . . . . . . ."
-    ". . . . . . . ."
-    ". . . . . . . ."
+    "a6 b6 c6 d6 e6 f6 g6 h6"
+    "a5 b5 c5 d5 e5 f5 g5 h5"
+    "a4 b4 c4 d4 e4 f4 g4 h4"
+    "a3 b3 c3 d3 e3 f3 g3 h3"
     "a2 b2 c2 d2 e2 f2 g2 h2"
     "a1 b1 c1 d1 e1 f1 g1 h1";
 }
 
-#rook_black_1 {
-  grid-area: a8;
-}
-#knight_black_1 {
-  grid-area: b8;
-}
-#bishop_black_1 {
-  grid-area: c8;
-}
-#queen_black {
-  grid-area: d8;
-}
-#king_black {
-  grid-area: e8;
+.square {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  text-align: center;
 }
 
+#a8, #c8, #e8, #g8,
+#b7, #d7, #f7, #h7,
+#a6, #c6, #e6, #g6,
+#b5, #d5, #f5, #h5,
+#a4, #c4, #e4, #g4,
+#b3, #d3, #f3, #h3,
+#a2, #c2, #e2, #g2,
+#b1, #d1, #f1, #h1 {background-color: brown;}
 
-#pawn_white_1 {
-  grid-area: a2;
-}
-#pawn_white_2 {
-  grid-area: b2;
-}
-#pawn_white_3 {
-  grid-area: c2;
-}
-#pawn_white_4 {
-  grid-area: d2;
-}
-#pawn_white_5 {
-  grid-area: e2;
-}
-#pawn_white_6 {
-  grid-area: f2;
-}
-#pawn_white_7 {
-  grid-area: g2;
-}
-#pawn_white_8 {
-  grid-area: h2;
-}
+#b8, #d8, #f8, #h8,
+#a7, #c7, #e7, #g7,
+#b6, #d6, #f6, #h6,
+#a5, #c5, #e5, #g5,
+#b4, #d4, #f4, #h4,
+#a3, #c3, #e3, #g3,
+#b2, #d2, #f2, #h2,
+#a1, #c1, #e1, #g1 {background-color: burlywood;}
 
-
-#rook_white_1 {
-  grid-area: a1;
+img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
-#knight_white_1 {
-  grid-area: b1;
-}
-#bishop_white_1 {
-  grid-area: c1;
-}
-#queen_white {
-  grid-area: d1;
-}
-#king_white {
-  grid-area: e1;
-}
-#bishop_white_2 {
-  grid-area: f1;
-}
-#knight_white_2 {
-  grid-area: g1;
-}
-#rook_white_2 {
-  grid-area: h1;
-}
-

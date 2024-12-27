@@ -28,25 +28,22 @@ function shuffle() {
   let letter = pickLetter(available);
   positions["bishop_white_1"] = letter + 1;
   positions["bishop_black_1"] = letter + 8;
-  console.log("after bishop 1: ", positions)
-  console.log("availale after bishop 1: ", available)
 
   // these squares are white respectively black on row 1
   const white_squares = ['a', 'c', 'e', 'g']
   const black_squares = ['b', 'd', 'f', 'h']
+
   let available_for_bishop_2 = []
   if (white_squares.includes(letter)) {
     available_for_bishop_2 = black_squares
   } else {
     available_for_bishop_2 = white_squares
   }
-
   letter = pickLetter(available_for_bishop_2)
-
   positions["bishop_white_2"] = letter + 1;
   positions["bishop_black_2"] = letter + 8;  
 
-  // knights wherever
+  // knights goes wherever
   let knight_1 = pickLetter(available)
   positions["knight_white_1"] = knight_1 + 1;
   positions["knight_black_1"] = knight_1 + 8;
@@ -54,7 +51,7 @@ function shuffle() {
   positions["knight_white_2"] = knight_2 + 1;
   positions["knight_black_2"] = knight_2 + 8;
   
-  // queen wherever
+  // queen goes wherever
   let queen = pickLetter(available)
   positions["queen_white"] = queen + 1;
   positions["queen_black"] = queen + 8;
@@ -76,10 +73,23 @@ function shuffle() {
 }
 
 let positions = shuffle()
-console.log(positions)
+
+
+function move(pieceID, targetSquareId) {
+  const piece = document.getElementById(pieceID);
+  const targetSquare = document.getElementById(targetSquareId);
+
+  if (piece && targetSquare) {
+    targetSquare.appendChild(piece);
+    console.log(`Moved ${pieceID} to ${targetSquareId}`);
+  } else {
+    console.error(`Element not found: king=${piece}, targetSquare=${targetSquare}`);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+});
 
 for (let key in positions) {
-  console.log(`${key}: ${positions[key]}`);
-  const piece = document.getElementById(key);
-  piece.style.gridArea = positions[key];
+  move(key, positions[key]);  
 }
