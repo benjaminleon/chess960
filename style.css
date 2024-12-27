@@ -1,5 +1,5 @@
 body {
-  background: #2d2d2d;
+  background: #313131;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +72,8 @@ img {
 }
 
 #button {
-  font-size: medium;
+  background-color: burlywood;
+  color: #2d2d2d;
 }
 #outer {
   text-align:center;
